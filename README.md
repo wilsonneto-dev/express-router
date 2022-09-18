@@ -1,4 +1,4 @@
-# Exprress Router
+# Express Router
 
 🎈 The simplest, easiest, and most minimalist way 😃 to create routes in a pure PHP app
 
