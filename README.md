@@ -68,6 +68,10 @@ RewriteRule ^(.*)$ index.php?path=$1 [NC,L,QSA]
 
 https://github.com/wilsonneto-dev/express-router-example
 
+#### Package website:
+
+https://wilsonneto-dev.github.io/express-router/
+
 #### Request and Response objects
 
 your router callbacks will receive two objects, the request with all the request information; and the response is the object responsible by prepare the response.
