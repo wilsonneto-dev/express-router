@@ -91,7 +91,7 @@ class Request {
 }
 ```
 
-```
+```php
 class Response {
     // use this method to control the response status code, default 200. 
     public function status(int $new_status_code);
