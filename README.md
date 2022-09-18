@@ -1,6 +1,6 @@
 # Express Router
 
-🎈 The simplest, easiest, and most minimalist way 😃 to create routes in a pure PHP app
+### 🎈 The simplest, easiest, and most minimalist way 😃 to create routes in a pure PHP app
 
 Install it in your project:
 ```console
