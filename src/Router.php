@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleRouter;
+namespace ExpressRouter;
 
 class Request {
     public ?Array $parameters = null;

@@ -1,0 +1,17 @@
+{
+    "name": "wilsonneto-dev/express-router",
+    "description": "The simplest router for PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wilson Neto",
+            "email": "hi@wilsonneto.com.br"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"ExpressRouter\\": "src/"}
+    },
+    "require": {}
+}
