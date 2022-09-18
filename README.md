@@ -51,17 +51,53 @@ $router->put("/articles/:id", function ($req, $res) {
 $router->route(isset($_GET["path"]) ? $_GET["path"] : "");
 ```
 
-You will need the rewrite mod enabled and a htaccess as the below: 
+You will need the rewrite mod enabled and a `.htaccess` file as the below: 
 ```
 <Files app.ini> 
-	Order Allow,Deny
-	Deny from all
+    Order Allow,Deny
+    Deny from all
 </Files>
 
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?path=$1 [NC,L,QSA]
+```
+
+#### Example project:
+
+https://github.com/wilsonneto-dev/express-router-example
+
+#### Request and Response objects
+
+your router callbacks will receive two objects, the request with all the request information; and the response is the object responsible by prepare the response.
+
+```php
+class Request {
+    // the route parameters
+    public ?Array $parameters;
+
+    // query parameters 
+    public ?Array $query = null;
+
+    // body payload
+    public $body = null;
+
+    // the request route
+    public string $route = "";
+
+    // the request method
+    public string $method = "";
+}
+
+class Response {
+    // use this method to control the response status code, default 200. 
+    public function status(int $new_status_code);
+
+    // use this method to return the response
+    public function response(Array $response);
+}
+
 ```
 
 And yes, that's all! <br />
