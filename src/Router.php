@@ -65,6 +65,7 @@ class Router
         $route_parts = explode("/", $route);
         $current_route_map = &$this->routes_map;
         foreach ($route_parts as $route_part) {
+            if($route_part === "") continue;
             if(!array_key_exists($route_part, $current_route_map["routes"]))
                 $current_route_map["routes"][$route_part] = Array(
                     "route" => $current_route_map["route"]."/".$route_part,
@@ -78,15 +79,24 @@ class Router
 
     function route(string $path)
     {
+        if($path === "") $path = "/";
+
         $found = $this->find_matching_route($path);
-        if($found == null)
-            throw new Exception("Path '" . $path . "' not found");
+        if($found == null){
+            $response = new Response();
+            $response->status(404)->response(Array("error" => "Not Found", "route" => $path));
+            return $this->process_response($response);
+        }
         
         $route = $found["route"];
         $parameters = $found["parameters"];
         
         if(!array_key_exists($_SERVER['REQUEST_METHOD'], $route["handlers"]))
-            throw new Exception("Method not allowed in route '" . $path . "'");
+        {
+            $response = new Response();
+            $response->status(405)->response(Array("error" => "Method not Allowed", "route" => $path));
+            return $this->process_response($response);
+        }
         
         $req = $this->mount_request($route, $parameters);
         $res = new Response();
