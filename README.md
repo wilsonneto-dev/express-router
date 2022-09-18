@@ -89,7 +89,9 @@ class Request {
     // the request method
     public string $method = "";
 }
+```
 
+```
 class Response {
     // use this method to control the response status code, default 200. 
     public function status(int $new_status_code);
@@ -97,7 +99,6 @@ class Response {
     // use this method to return the response
     public function response(Array $response);
 }
-
 ```
 
 And yes, that's all! <br />
