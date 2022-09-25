@@ -74,7 +74,7 @@ https://wilsonneto-dev.github.io/express-router/
 
 #### Packagist:
 
-https://wilsonneto-dev.github.io/express-router/
+https://packagist.org/packages/wilsonneto-dev/express-router
 
 #### Request and Response objects
 
